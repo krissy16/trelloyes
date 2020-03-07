@@ -4,7 +4,12 @@ import './List.css'
 
 function List(props) {
     const cards = props.cards.map(card => 
-        <Card key={card.id} title={card.title} content={card.content}/>
+        <Card 
+          key={card.id} 
+          id={card.id}
+          onDeleteItem={props.onDeleteItem} 
+          title={card.title} 
+          content={card.content}/>
         );
   return (
       <section className='List'>
@@ -13,7 +18,7 @@ function List(props) {
           </header>
           <div className='List-cards'>
             {cards}
-            <button type="button" className="List-add-button">
+            <button type="button" className="List-add-button" onClick={props.onAddItem}>
                 + Add Random Card
             </button>
           </div>
